@@ -1,5 +1,11 @@
 import { createApp } from "vue";
+import { createPinia } from "pinia";
 import App from "./App.vue";
-import "./registerServiceWorker";
+import vuetify from "./plugins/vuetify";
+import { loadFonts } from "./plugins/webfontloader";
 
-createApp(App).mount("#app");
+loadFonts();
+
+const pinia = createPinia();
+
+createApp(App).use(vuetify).use(pinia).mount("#app");
